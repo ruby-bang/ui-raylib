@@ -49,17 +49,17 @@ void sidebar_panel() {
   int padding_top = sidebar_with * 0.28;
   int button_with = sidebar_with - padding_left * 2;
   int button_hieght = (sidebar_with - padding_top) * 0.30;
+  int fontsize_button = 20;
   DrawRectangle(0, 0, sidebar_with, screen_height, RED);
   DrawText("Hallo", padding_left, padding_left, 40, WHITE);
   for (int i = 0; i < size_button_name; i++) {
     Color colorBg = BLUE;
     Color colorFg = WHITE;
-    int buttonX = (button_hieght + button_hieght * 0.35) * (i + 1);
-    int text_widht = MeasureText(button_sidebar[i].key, 20);
+    int text_widht = MeasureText(button_sidebar[i].key, fontsize_button);
     Rectangle rec_button = {
         .x = padding_left,
         .y = padding_top * (i + 1),
-        .width = sidebar_with - padding_left * 2,
+        .width = button_with,
         .height = button_hieght,
     };
     if (CheckCollisionPointRec(GetMousePosition(), rec_button)) {
@@ -75,7 +75,8 @@ void sidebar_panel() {
     DrawRectangleRounded(rec_button, 0.25, 6, colorBg);
 
     DrawText(button_sidebar[i].key, (button_with * 0.6) - (text_widht * 0.5),
-             buttonX + (button_hieght * 0.30), 20, colorFg);
+             rec_button.y + rec_button.x * 0.5 + fontsize_button * 0.4,
+             fontsize_button, colorFg);
   }
 }
 
