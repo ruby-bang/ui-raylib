@@ -1,4 +1,4 @@
-# UI in C using raylib
+# UI in C using [raylib](https://www.raylib.com/).
 this project i make to implement ui in C to learn raylib
 
 ## reference 
